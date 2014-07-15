@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Devon Smith. All rights reserved.
 //
 
+#include "GroceryList.h"
 #include <iostream>
 
 int main(int argc, const char * argv[])
 {
-
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+    GroceryList shop;
+    shop.listBuilder();
+    shop.findInList();
 }
 
