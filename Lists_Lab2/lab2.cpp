@@ -82,21 +82,21 @@ int main(int argc, const char * argv[])
  Ground Beef
  Chicken
  
- Please input one of the items above to get its location: Soup
- You wanted to find Soup which is located in aisle 5
- 
  Please input one of the items above to get its location: Cereal
  You wanted to find Cereal which is located in aisle 5
  
- Please input one of the items above to get its location: Candy
- You wanted to find Candy which is located in aisle 6
+ Please input one of the items above to get its location: Jerky
+ You wanted to find Jerky which is located in aisle 6
  
- You might also want to get some Jerky which is located in aisle 6
- You might also want to get some Ground Beef which is located in aisle 8
- You might also want to get some Milk which is located in aisle 2
+ Please input one of the items above to get its location: Pizza
+ You wanted to find Pizza which is located in aisle 2
+ 
  You might also want to get some Chips which is located in aisle 4
- You might also want to get some Eggs which is located in aisle 1
+ You might also want to get some Bread which is located in aisle 3
+ You might also want to get some Ground Beef which is located in aisle 8
  You might also want to get some Coffee which is located in aisle 7
+ You might also want to get some Peanuts which is located in aisle 4
+ You might also want to get some Milk which is located in aisle 2
 */
 
 

@@ -30,7 +30,8 @@ using namespace std;
 //*******************************************************************************
 list<GroceryItem> foodList;
 list<GroceryItem>::iterator itr = foodList.begin();
-vector<string> dupePreventer; //Vector to store user choices
+list<string> dupePreventer;
+list<string>::iterator dupeItr = dupePreventer.begin();
 
 void GroceryList::listBuilder()
 {
@@ -54,7 +55,7 @@ void GroceryList::listBuilder()
 void GroceryList::findInList()
 {
     
-    string choice = "Cereal";
+    string choice;
     int i = 0;
     
     
@@ -99,19 +100,18 @@ void GroceryList::moreYouMightWant()
     while (count < 6)
     {
         
-    foodPicker = rand() % 10;
+    foodPicker = rand() % 10 + 1;
         
     for (itr = foodList.begin(); itr != foodList.end(); itr++)
     {
-        //In the if statement below, whatever is output to the user is inserted in vector, the
-        //for statement following this comment, loops through the vector and searches
-        //for a value that has already been display to the user to ensure that the if statement
+        //In the if statement below, whatever is output to the user is inserted into the dupPreventor list, the
+        //for statement following this comment, iterates through the list and searches
+        //for a value that has already been displayed to the user to ensure that the if statement
         //that outputs an item to the user is not repeated.
-        for (int dupeItr = 0; dupeItr < dupePreventer.size(); dupeItr++)
-        {
-            if (dupePreventer[dupeItr] == itr->getFoodItem())
-            {
-                dupeVar = itr->getFoodItem();
+        
+        for (dupeItr = dupePreventer.begin(); dupeItr != dupePreventer.end(); dupeItr++) {
+            if (*dupeItr == itr->getFoodItem()) {
+                dupeVar = *dupeItr;
             }
         }
         

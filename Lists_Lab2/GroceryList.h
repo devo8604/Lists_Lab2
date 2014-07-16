@@ -48,10 +48,6 @@ public:
     
     
 private:
-    //Variables
-    std::list<GroceryItem> foodList;
-    std::list<GroceryItem>::iterator itr = foodList.begin();
-    std::vector<std::string> dupePreventer;
     
     void moreYouMightWant(); //Searches list and displays 6 random objects
 };
