@@ -11,11 +11,13 @@
 #include <iostream>
 #include <list>
 #include <time.h>
+#include <vector>
 
 using namespace std;
 
 list<GroceryItem> foodList;
 list<GroceryItem>::iterator itr = foodList.begin();
+
 
 void GroceryList::listBuilder()
 {
@@ -69,26 +71,45 @@ void GroceryList::findInList()
 void GroceryList::moreYouMightWant()
 
 {
+    //Variables used for duplicate preventer
+    vector<string> dupePreventer;
+    string dupeVar = " ";
     
+    //Variables used to pick 6 random food items
     int foodPicker = 0;
     int count = 0;
     
-srand((unsigned) time(NULL));
     
-    while (count < 6) {
-
+    srand((unsigned) time(NULL));
+    
+    while (count < 6)
+    {
+        
     foodPicker = rand() % 10;
         
     for (itr = foodList.begin(); itr != foodList.end(); itr++)
     {
-        if (itr->getAisleNumber() == foodPicker) {
+        //In the if statement below, whatever is output to the user is inserted in vector, the
+        //for statement following this comment, loops through the vector and searches
+        //for a value that has already been display to the user to ensure that the if statement
+        //that outputs an item to the user is not repeated.
+        for (int dupeItr = 0; dupeItr < dupePreventer.size(); dupeItr++)
+        {
+            if (dupePreventer[dupeItr] == itr->getFoodItem())
+            {
+                dupeVar = itr->getFoodItem();
+                break;
+            }
+        }
+        if (itr->getAisleNumber() == foodPicker && dupeVar != itr->getFoodItem())
+        {
             cout << "You might also want to get some " << itr->getFoodItem() << " which is located in aisle " << \
             itr->getAisleNumber() << endl;
+            dupePreventer.push_back(itr->getFoodItem());
+            count++;
             break;
-            
         }
     }
-        count++;
     }
 }
 
