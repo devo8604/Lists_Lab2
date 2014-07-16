@@ -12,6 +12,7 @@
 #include "GroceryItem.h"
 #include <iostream>
 #include <list>
+#include <vector>
 
 #endif /* defined(__Lists_Lab2__GroceryList__) */
 
@@ -22,11 +23,13 @@ public:
     
     void listBuilder();
     void findInList();
-    void moreYouMightWant();
+    
     
 private:
-    
+    //Variables
     std::list<GroceryItem> foodList;
     std::list<GroceryItem>::iterator itr = foodList.begin();
+    std::vector<std::string> dupePreventer;
+    void moreYouMightWant();
     
 };

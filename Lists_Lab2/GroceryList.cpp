@@ -17,7 +17,7 @@ using namespace std;
 
 list<GroceryItem> foodList;
 list<GroceryItem>::iterator itr = foodList.begin();
-
+vector<string> dupePreventer; //Vector to store user choices
 
 void GroceryList::listBuilder()
 {
@@ -45,6 +45,8 @@ void GroceryList::findInList()
     string choice = "Cereal";
     int i = 0;
     
+    
+    cout << "Here are a list of your choices: " << endl;
     for (itr = foodList.begin(); itr != foodList.end(); itr++)
     {
         cout << itr->getFoodItem() << endl;
@@ -53,12 +55,14 @@ void GroceryList::findInList()
     {
     
         cout << endl << "Please input one of the items above to get its location: ";
-//DEBUG      cin >> choice;
-    
+        cin >> choice;
+        
         for (itr = foodList.begin(); itr != foodList.end(); itr++)
             {
                 if (itr->getFoodItem() == choice)
                 {
+                    dupePreventer.push_back(itr->getFoodItem()); //Add choice to vector to prevent duplicates later on...
+                    
                     cout << "You wanted to find " << itr->getFoodItem() << " which is located in aisle " << \
                     itr->getAisleNumber() << endl;
                 }
@@ -71,14 +75,12 @@ void GroceryList::findInList()
 void GroceryList::moreYouMightWant()
 
 {
-    //Variables used for duplicate preventer
-    vector<string> dupePreventer;
+    //Variable used for duplicate preventer
     string dupeVar = " ";
     
     //Variables used to pick 6 random food items
     int foodPicker = 0;
     int count = 0;
-    
     
     srand((unsigned) time(NULL));
     
@@ -98,7 +100,6 @@ void GroceryList::moreYouMightWant()
             if (dupePreventer[dupeItr] == itr->getFoodItem())
             {
                 dupeVar = itr->getFoodItem();
-                break;
             }
         }
         if (itr->getAisleNumber() == foodPicker && dupeVar != itr->getFoodItem())
