@@ -1,20 +1,33 @@
+//*************************************************************************
+// TITLE: 			   	STL Vectors Lab
+// FILENAME:               GroceryList.cpp
+// PREPARED FOR:             CS230
+// PROGRAMMER(S):           Devon J. Smith
+// DEVELOPMENT DATE:     	07/14/14
+// COMPILER USED:            Apple LLVM Version 5.1
+// TARGET PLATFORM:         Mac OS X i386 & x86_64
+//=================================================================
+//   		REVISION HISTORY
+//   List revisions made to the Program
 //
-//  GroceryList.cpp
-//  Lists_Lab2
+//   DATE     PROGRAMMER            DESCRIPTION OF CHANGES MADE
+//	 07/14/14 Devon J. Smith        Original
 //
-//  Created by Devon Smith on 7/14/14.
-//  Copyright (c) 2014 Devon Smith. All rights reserved.
+//*******************************************************************************
+//                               CONSTANTS
 //
-
+//*******************************************************************************
+//                  STANDARD AND USER DEFINED INCLUDES
 #include "GroceryList.h"
 #include "GroceryItem.h"
 #include <iostream>
 #include <list>
 #include <time.h>
 #include <vector>
-
 using namespace std;
-
+//*******************************************************************************
+//             Definition of member functions for class Entry
+//*******************************************************************************
 list<GroceryItem> foodList;
 list<GroceryItem>::iterator itr = foodList.begin();
 vector<string> dupePreventer; //Vector to store user choices
@@ -36,8 +49,7 @@ void GroceryList::listBuilder()
     foodList.insert(itr,GroceryItem("Peanuts",4));
     foodList.insert(itr,GroceryItem("Ground Beef",8));
     foodList.insert(itr,GroceryItem("Chicken",9));
-    
-}
+} // END listBuilder()
 
 void GroceryList::findInList()
 {
@@ -70,10 +82,9 @@ void GroceryList::findInList()
         i++;
     }
     moreYouMightWant();
-}
+} // END findInList()
 
 void GroceryList::moreYouMightWant()
-
 {
     //Variable used for duplicate preventer
     string dupeVar = " ";
@@ -83,7 +94,8 @@ void GroceryList::moreYouMightWant()
     int count = 0;
     
     srand((unsigned) time(NULL));
-    
+    cout << endl;
+
     while (count < 6)
     {
         
@@ -102,6 +114,7 @@ void GroceryList::moreYouMightWant()
                 dupeVar = itr->getFoodItem();
             }
         }
+        
         if (itr->getAisleNumber() == foodPicker && dupeVar != itr->getFoodItem())
         {
             cout << "You might also want to get some " << itr->getFoodItem() << " which is located in aisle " << \
@@ -112,7 +125,7 @@ void GroceryList::moreYouMightWant()
         }
     }
     }
-}
+} // END moreYouMightWant()
 
 
 

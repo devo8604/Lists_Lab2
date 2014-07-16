@@ -1,21 +1,33 @@
+//*************************************************************************
+// TITLE: 			   	STL Vectors Lab
+// FILENAME:               GroceryItem.cpp
+// PREPARED FOR:             CS230
+// PROGRAMMER(S):           Devon J. Smith
+// DEVELOPMENT DATE:     	07/14/14
+// COMPILER USED:            Apple LLVM Version 5.1
+// TARGET PLATFORM:         Mac OS X i386 & x86_64
+//=================================================================
+//   		REVISION HISTORY
+//   List revisions made to the Program
 //
-//  GroceryItem.cpp
-//  Lists_Lab2
+//   DATE     PROGRAMMER            DESCRIPTION OF CHANGES MADE
+//	 07/14/14 Devon J. Smith        Original
 //
-//  Created by Devon Smith on 7/14/14.
-//  Copyright (c) 2014 Devon Smith. All rights reserved.
+//*******************************************************************************
+//                               CONSTANTS
 //
-
+//*******************************************************************************
+//                  STANDARD AND USER DEFINED INCLUDES
 #include "GroceryItem.h"
 #include <iostream>
 #include <string>
 
 using namespace std;
-
+//*******************************************************************************
+//             Definition of member functions for class Entry
+//*******************************************************************************
 string foodItem;
 int aisleNumber;
-
-GroceryItem::GroceryItem() {}
 
 GroceryItem::GroceryItem(string foodItem, int aisleNumber)
 {
