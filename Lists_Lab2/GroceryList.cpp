@@ -10,6 +10,7 @@
 #include "GroceryItem.h"
 #include <iostream>
 #include <list>
+#include <time.h>
 
 using namespace std;
 
@@ -22,24 +23,24 @@ void GroceryList::listBuilder()
     foodList.insert(itr,GroceryItem("Milk",2));
     foodList.insert(itr,GroceryItem("Bread",3));
     foodList.insert(itr,GroceryItem("Soup",5));
-    foodList.insert(itr,GroceryItem("Candy",16));
-    foodList.insert(itr,GroceryItem("Fruit",30));
-    foodList.insert(itr,GroceryItem("Pizza",12));
+    foodList.insert(itr,GroceryItem("Candy",6));
+    foodList.insert(itr,GroceryItem("Fruit",3));
+    foodList.insert(itr,GroceryItem("Pizza",2));
     foodList.insert(itr,GroceryItem("Butter",2));
-    foodList.insert(itr,GroceryItem("Chips",40));
-    foodList.insert(itr,GroceryItem("Coffee",17));
-    foodList.insert(itr,GroceryItem("Cereal",15));
-    foodList.insert(itr,GroceryItem("Jerky",16));
+    foodList.insert(itr,GroceryItem("Chips",4));
+    foodList.insert(itr,GroceryItem("Coffee",7));
+    foodList.insert(itr,GroceryItem("Cereal",5));
+    foodList.insert(itr,GroceryItem("Jerky",6));
     foodList.insert(itr,GroceryItem("Peanuts",4));
-    foodList.insert(itr,GroceryItem("Ground Beef",6));
-    foodList.insert(itr,GroceryItem("Chicken",6));
+    foodList.insert(itr,GroceryItem("Ground Beef",8));
+    foodList.insert(itr,GroceryItem("Chicken",9));
     
 }
 
 void GroceryList::findInList()
 {
     
-    string choice;
+    string choice = "Cereal";
     int i = 0;
     
     for (itr = foodList.begin(); itr != foodList.end(); itr++)
@@ -50,7 +51,7 @@ void GroceryList::findInList()
     {
     
         cout << endl << "Please input one of the items above to get its location: ";
-        cin >> choice;
+//DEBUG      cin >> choice;
     
         for (itr = foodList.begin(); itr != foodList.end(); itr++)
             {
@@ -66,10 +67,29 @@ void GroceryList::findInList()
 }
 
 void GroceryList::moreYouMightWant()
-{
 
+{
     
+    int foodPicker = 0;
+    int count = 0;
     
+srand((unsigned) time(NULL));
+    
+    while (count < 6) {
+
+    foodPicker = rand() % 10;
+        
+    for (itr = foodList.begin(); itr != foodList.end(); itr++)
+    {
+        if (itr->getAisleNumber() == foodPicker) {
+            cout << "You might also want to get some " << itr->getFoodItem() << " which is located in aisle " << \
+            itr->getAisleNumber() << endl;
+            break;
+            
+        }
+    }
+        count++;
+    }
 }
 
 
